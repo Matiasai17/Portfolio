@@ -1,0 +1,43 @@
+# ════════════ Sinapstudio · .htaccess (Hostinger / Apache) ════════════
+# HTTPS forzado, compresión, caché de assets, charset y seguridad básica.
+
+# ── Forzar HTTPS ──────────────────────────────────────────────
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── (Opcional) Quitar www: descomentá si tu dominio va SIN www ─
+# RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+# RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# ── Charset ───────────────────────────────────────────────────
+AddDefaultCharset UTF-8
+
+# ── Compresión gzip ───────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml \
+    text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# ── Caché del navegador ───────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css           "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/jpeg         "access plus 1 year"
+  ExpiresByType image/png          "access plus 1 year"
+  ExpiresByType image/webp         "access plus 1 year"
+  ExpiresByType image/svg+xml      "access plus 1 year"
+  ExpiresByType font/woff2         "access plus 1 year"
+  ExpiresByType text/html          "access plus 0 seconds"
+</IfModule>
+
+# ── Cabeceras de seguridad básicas ────────────────────────────
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# ── Páginas de error → vuelven al inicio (sitio de una sola página) ─
+ErrorDocument 404 /index.html

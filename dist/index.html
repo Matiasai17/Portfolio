@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- ════════════════ SEO ════════════════ -->
+  <title>SinapStudio — Diseño lo que se ve, automatizo lo que cansa | Matías Medrano</title>
+  <meta name="description" content="Matías Medrano (Rosario, Argentina): webs con identidad propia, automatizaciones que ahorran horas y herramientas a medida. Diseño y tecnología, haciendo sinapsis." />
+  <meta name="keywords" content="diseño web, automatización IA, herramientas a medida, branding, Rosario, SinapStudio, Matías Medrano, n8n, Claude" />
+  <link rel="canonical" href="https://sinapstudio.com/" />
+  <meta name="theme-color" content="#07060f" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SinapStudio — Diseño lo que se ve, automatizo lo que cansa" />
+  <meta property="og:description" content="Webs con identidad propia, automatizaciones que ahorran horas y herramientas a medida. Matías Medrano, diseñador gráfico en Rosario." />
+  <meta property="og:url" content="https://sinapstudio.com/" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="SinapStudio" />
+  <meta property="og:image" content="./assets/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SinapStudio — Diseño lo que se ve, automatizo lo que cansa" />
+  <meta name="twitter:description" content="Webs con identidad propia, automatizaciones que ahorran horas y herramientas a medida. Diseño y tecnología, haciendo sinapsis." />
+  <meta name="twitter:image" content="./assets/og.png" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2307060f'/%3E%3Cpath d='M10 21 C14 21 18 11 22 11' stroke='%23a58bff' stroke-width='2' fill='none'/%3E%3Ccircle cx='10' cy='21' r='4.2' fill='%23f2b84b'/%3E%3Ccircle cx='22' cy='11' r='3' fill='%239fe3ff'/%3E%3C/svg%3E" />
+
+  <!-- ════════════════ Tipografía: Recursive (variable, eje MONO sans ↔ mono) ════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Recursive:wght,CASL,MONO@300..1000,0..1,0..1&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/styles.css?v=3.1.5" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "SinapStudio",
+    "founder": { "@type": "Person", "name": "Matías Medrano" },
+    "description": "Estudio de diseño que construye webs, automatizaciones y herramientas a medida con IA.",
+    "url": "https://sinapstudio.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Rosario", "addressRegion": "Santa Fe", "addressCountry": "AR" },
+    "sameAs": ["https://www.linkedin.com/in/matias-medrano-374032233/"],
+    "knowsAbout": ["Diseño web", "Automatización con IA", "Branding", "Herramientas a medida"]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#inicio">Saltar al contenido</a>
+
+  <!-- ══════════ RED NEURONAL 3D (fondo fijo) ══════════
+       Muta según la sección: árbol → flujo → navegador → cohete → MM → sinapsis.
+       Render y controles: js/neural.js (NEURAL_CONFIG). Formas: js/shapes.js. -->
+  <canvas class="neural" id="neural" aria-hidden="true"></canvas>
+  <div class="atmos" aria-hidden="true"></div>
+
+  <!-- ════════════════════════ HEADER ════════════════════════ -->
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="#inicio" aria-label="SinapStudio, inicio">
+        <svg class="brand__mark" viewBox="0 0 36 26" width="36" height="26" aria-hidden="true">
+          <path class="brand__axon" d="M7 19 C14 19 20 7 28 7" />
+          <circle class="brand__pulse" r="1.6"><animateMotion dur="2.6s" repeatCount="indefinite" path="M7 19 C14 19 20 7 28 7" /></circle>
+          <circle class="brand__node brand__node--a" cx="7" cy="19" r="4.4" />
+          <circle class="brand__node brand__node--b" cx="28" cy="7" r="3.2" />
+        </svg>
+        <span class="brand__text">Sinap<em>Studio</em></span>
+      </a>
+      <p class="crumb" aria-hidden="true"><span class="crumb__sep">/</span><span id="crumb">inicio</span></p>
+
+      <div class="header-actions">
+        <button class="icon-btn sound-toggle" id="soundToggle" aria-pressed="true" aria-label="Silenciar sonidos" title="Silenciar sonidos">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle class="snd-node" cx="7.5" cy="12" r="3" />
+            <path class="snd-wave" d="M13 8.6a5 5 0 0 1 0 6.8" />
+            <path class="snd-wave" d="M16.4 5.4a9.5 9.5 0 0 1 0 13.2" />
+            <line class="snd-slash" x1="4" y1="20" x2="20" y2="4" />
+          </svg>
+        </button>
+        <a class="btn btn--primary btn--sm header-cta" href="#contacto">Hablemos</a>
+        <button class="menu-btn" id="menuToggle" aria-expanded="false" aria-controls="menu">
+          <span class="menu-btn__label">Menú</span>
+          <span class="menu-btn__icon" aria-hidden="true"><i></i><i></i></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ════════════════════════ MENÚ OVERLAY ════════════════════════
+       Cada ítem dice qué forma toma la red en esa sección. -->
+  <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+    <div class="wrap menu__inner">
+      <nav class="menu__nav" aria-label="Secciones">
+        <ol class="menu__list">
+          <li><a class="menu__link" href="#inicio"><span class="menu__shape">árbol</span><span class="menu__name">Inicio</span></a></li>
+          <li><a class="menu__link" href="#automatizaciones"><span class="menu__shape">flujo</span><span class="menu__name">Automatizaciones</span></a></li>
+          <li><a class="menu__link" href="#web"><span class="menu__shape">navegador</span><span class="menu__name">Webs</span></a></li>
+          <li><a class="menu__link" href="#diseno"><span class="menu__shape">mutando</span><span class="menu__name">Identidad y diseño</span></a></li>
+          <li><a class="menu__link" href="#herramientas"><span class="menu__shape">cohete</span><span class="menu__name">Herramientas</span></a></li>
+          <li><a class="menu__link" href="#sobre-mi"><span class="menu__shape">monograma</span><span class="menu__name">Sobre mí</span></a></li>
+          <li><a class="menu__link" href="#contacto"><span class="menu__shape">tejido</span><span class="menu__name">Contacto</span></a></li>
+        </ol>
+      </nav>
+      <div class="menu__foot">
+        <p class="menu__note">// diseño × ia · rosario, argentina</p>
+        <div class="menu__contacts">
+          <a href="https://wa.me/5493435462568" target="_blank" rel="noopener">WhatsApp ↗</a>
+          <a href="mailto:matiass1708@gmail.com">matiass1708@gmail.com</a>
+          <a href="https://www.linkedin.com/in/matias-medrano-374032233/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ════════════════════════ 1 · HERO ════════════════════════ -->
+    <section class="section hero" id="inicio" data-name="inicio">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow reveal">estudio de diseño × ia · rosario, argentina</p>
+          <h1 class="hero__title">
+            <span class="line"><span class="line__in">Diseño lo que se ve.</span></span>
+            <span class="line"><span class="line__in">Automatizo</span></span>
+            <span class="line"><span class="line__in"><span class="hero__code">lo que cansa</span><span class="caret" aria-hidden="true"></span>.</span></span>
+          </h1>
+          <p class="lead hero__lead reveal" style="--d:.5s">
+            Conecto diseño y tecnología para construir webs, automatizaciones y
+            herramientas que le devuelven horas a tu semana.
+          </p>
+          <div class="btn-row reveal" style="--d:.6s">
+            <a class="btn btn--primary" href="#web">Ver trabajos</a>
+            <a class="btn btn--ghost" href="#contacto">Hablemos</a>
+          </div>
+        </div>
+        <!-- Escenario: acá se ubica la forma de la red (el árbol con flores) -->
+        <div class="stage hero__stage" data-stage="tree" aria-hidden="true"></div>
+      </div>
+
+      <div class="wrap hero__foot reveal" style="--d:.8s">
+        <p class="hint hint--click">Hacé clic en la red para disparar una sinapsis</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ 2 · AUTOMATIZACIONES ═══════════════════ -->
+    <section class="section" id="automatizaciones" data-name="automatizaciones">
+      <div class="wrap">
+        <div class="stage stage--banner" data-stage="flow" aria-hidden="true"></div>
+
+        <div class="head head--split">
+          <div>
+            <p class="eyebrow reveal">automatizaciones</p>
+            <h2 class="title reveal">Lo repetitivo, que lo haga una máquina.</h2>
+          </div>
+          <p class="lead reveal" style="--d:.1s">
+            Una automatización es un sistema que trabaja por vos: responde mensajes,
+            ordena información y conecta las apps que ya usás. Vos te ocupás de lo
+            importante; el resto corre solo, todos los días.
+          </p>
+        </div>
+
+        <!-- Simulador: elegís un caso y lo ves correr paso a paso.
+             Los casos se editan en js/main.js → FLOWS. Cada paso dispara
+             pulsos sobre el flujo 3D de fondo. -->
+        <div class="sim panel reveal" id="sim">
+          <div class="sim__bar">
+            <div class="sim__tabs" role="tablist" aria-label="Ejemplos de automatización"></div>
+            <p class="sim__badge"><span class="live-dot" aria-hidden="true"></span><span class="sim__badge-text">simulación</span></p>
+          </div>
+          <div class="sim__body">
+            <div class="sim__info" role="tabpanel" id="simPanel" aria-live="polite">
+              <p class="sim__tag"></p>
+              <h3 class="sim__title"></h3>
+              <p class="sim__text"></p>
+              <ul class="sim__stack" aria-label="Stack" hidden></ul>
+              <button class="btn btn--ghost btn--sm sim__replay" type="button">
+                <svg class="btn__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg>
+                Correr de nuevo
+              </button>
+            </div>
+            <div class="sim__run">
+              <div class="flow" aria-label="Flujo de la automatización"><div class="flow__inner" id="flowInner"></div></div>
+              <div class="console" aria-label="Registro de la simulación">
+                <div class="console__bar"><span></span><span></span><span></span><em>registro</em></div>
+                <ol class="console__log"></ol>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="section-cta reveal">
+          ¿Hay una tarea que te roba horas todas las semanas?
+          <a class="link-strong" href="#contacto">Contámela y te digo si se puede automatizar →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════ 3 · WEBS ════════════════════════ -->
+    <section class="section" id="web" data-name="webs">
+      <div class="wrap">
+        <div class="head head--stage">
+          <div>
+            <p class="eyebrow reveal">diseño web</p>
+            <h2 class="title reveal">Webs con identidad propia, de punta a punta.</h2>
+            <p class="lead reveal" style="--d:.1s">
+              Marca, interfaz y desarrollo en un mismo lugar: cada sitio sale con su
+              propia personalidad, no de una plantilla. Dos proyectos publicados y en línea.
+            </p>
+          </div>
+          <div class="stage stage--side" data-stage="browser" aria-hidden="true"></div>
+        </div>
+
+        <div class="cases">
+          <!-- CASO · Hierbas Blends -->
+          <article class="case reveal">
+            <a class="case__frame" href="https://hierbasblends.com" target="_blank" rel="noopener" aria-label="Abrir hierbasblends.com en una pestaña nueva">
+              <div class="frame__bar"><span></span><span></span><span></span><em>hierbasblends.com</em></div>
+              <div class="carousel" data-carousel>
+                <div class="carousel__track">
+                  <img class="carousel__slide is-active" src="./assets/hierbasblends-1.jpg" alt="Hierbas Blends — inicio" width="1280" height="800" loading="lazy" />
+                  <img class="carousel__slide" src="./assets/hierbasblends-2.jpg" alt="Hierbas Blends — catálogo de blends" width="1280" height="800" loading="lazy" />
+                  <img class="carousel__slide" src="./assets/hierbasblends-3.jpg" alt="Hierbas Blends — página de producto" width="1280" height="800" loading="lazy" />
+                </div>
+                <div class="carousel__progress"></div>
+              </div>
+            </a>
+            <div class="case__body">
+              <p class="case__url">hierbasblends.com</p>
+              <h3 class="case__title">Hierbas Blends</h3>
+              <p class="case__desc">Marca de blends de hierbas naturales. Identidad, packaging y tienda online con estética cálida y artesanal — la marca completa, desde el logo hasta el carrito.</p>
+              <dl class="spec">
+                <div><dt>alcance</dt><dd>Branding · Packaging · Diseño web · Fotografía</dd></div>
+                <div><dt>tipo</dt><dd>Tienda online</dd></div>
+                <div><dt>estado</dt><dd><span class="live-dot" aria-hidden="true"></span>En línea</dd></div>
+              </dl>
+              <a class="link-strong" href="https://hierbasblends.com" target="_blank" rel="noopener">Ver sitio en vivo ↗</a>
+            </div>
+          </article>
+
+          <!-- CASO · FM Libertad -->
+          <article class="case case--flip reveal">
+            <a class="case__frame" href="https://radiofmlibertad.com" target="_blank" rel="noopener" aria-label="Abrir radiofmlibertad.com en una pestaña nueva">
+              <div class="frame__bar"><span></span><span></span><span></span><em>radiofmlibertad.com</em></div>
+              <div class="carousel" data-carousel>
+                <div class="carousel__track">
+                  <img class="carousel__slide is-active" src="./assets/radiofmlibertad-1.jpg" alt="FM Libertad 101.5 — inicio" width="1280" height="800" loading="lazy" />
+                </div>
+                <div class="carousel__progress"></div>
+              </div>
+            </a>
+            <div class="case__body">
+              <p class="case__url">radiofmlibertad.com</p>
+              <h3 class="case__title">FM Libertad 101.5</h3>
+              <p class="case__desc">La radio de Nogoyá, Entre Ríos, en vivo las 24 horas. Sitio con reproductor en streaming que se reconecta solo, grilla de programas e identidad digital.</p>
+              <dl class="spec">
+                <div><dt>alcance</dt><dd>Diseño web · UI/UX · Desarrollo</dd></div>
+                <div><dt>tipo</dt><dd>Radio con streaming 24 h</dd></div>
+                <div><dt>estado</dt><dd><span class="live-dot" aria-hidden="true"></span>En línea</dd></div>
+              </dl>
+              <a class="link-strong" href="https://radiofmlibertad.com" target="_blank" rel="noopener">Ver sitio en vivo ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ 3b · IDENTIDAD Y DISEÑO ══════════════════
+         Portadas estáticas acá; el contenido de cada caso vive en js/design.js (CASES).
+         Imágenes generadas por tools/build-design-assets.py en assets/diseno/. -->
+    <section class="section" id="diseno" data-name="diseño">
+      <div class="wrap">
+        <div class="head head--split">
+          <div>
+            <p class="eyebrow reveal">identidad y diseño</p>
+            <h2 class="title reveal">Marcas con carácter, de la idea a la imprenta.</h2>
+          </div>
+          <p class="lead reveal" style="--d:.1s">
+            Antes que la web y la automatización, el diseño gráfico: identidades,
+            packaging, editorial e interfaces. Una selección de proyectos reales,
+            con el proceso a la vista.
+          </p>
+        </div>
+
+        <div class="bento">
+          <a class="tile tile--hb reveal" href="#caso-hierbas" data-case="hierbas">
+            <img src="./assets/diseno/hb/cover-800.webp" srcset="./assets/diseno/hb/cover-800.webp 800w, ./assets/diseno/hb/cover-1600.webp 1600w" sizes="(max-width: 760px) 100vw, 58vw" width="1600" height="1240" alt="Línea de etiquetas de Hierbas Blends" loading="lazy" />
+            <span class="tile__info"><span class="tile__tags">identidad · packaging · ilustración</span><span class="tile__name">Hierbas Blends</span><span class="tile__year">2020–2026</span></span>
+          </a>
+          <a class="tile tile--noer reveal" style="--d:.06s" href="#caso-noer" data-case="noer">
+            <img src="./assets/diseno/noer/cover-800.webp" srcset="./assets/diseno/noer/cover-800.webp 800w, ./assets/diseno/noer/cover-1600.webp 1600w" sizes="(max-width: 760px) 100vw, 42vw" width="1600" height="1600" alt="Logo de NoER sobre verde" loading="lazy" />
+            <span class="tile__info"><span class="tile__tags">rebrand · ux/ui</span><span class="tile__name">NoER</span><span class="tile__year">2026</span></span>
+          </a>
+          <a class="tile tile--hd24 reveal" href="#caso-hotdog24" data-case="hotdog24">
+            <img src="./assets/diseno/hd24/cover-800.webp" srcset="./assets/diseno/hd24/cover-800.webp 800w, ./assets/diseno/hd24/cover-1600.webp 1600w" sizes="(max-width: 760px) 100vw, 34vw" width="1600" height="1000" alt="Logotipo de HotDog24 sobre fondo graffiti" loading="lazy" />
+            <span class="tile__info"><span class="tile__tags">identidad · ploteo</span><span class="tile__name">HotDog24</span><span class="tile__year">2025</span></span>
+          </a>
+          <a class="tile tile--fm reveal" style="--d:.06s" href="#caso-fm" data-case="fm">
+            <img src="./assets/diseno/fm/cover-800.webp" srcset="./assets/diseno/fm/cover-800.webp 800w, ./assets/diseno/fm/cover-1600.webp 1600w" sizes="(max-width: 760px) 100vw, 66vw" width="1600" height="1000" alt="Logo de FM Libertad 101.5 sobre azul oscuro" loading="lazy" />
+            <span class="tile__info"><span class="tile__tags">identidad · gráfica al aire</span><span class="tile__name">FM Libertad 101.5</span><span class="tile__year">2024–2026</span></span>
+          </a>
+          <a class="tile tile--wc reveal" href="#caso-weconnection" data-case="weconnection">
+            <img src="./assets/diseno/wc/cover-800.webp" srcset="./assets/diseno/wc/cover-800.webp 640w, ./assets/diseno/wc/cover-1600.webp 1024w" sizes="(max-width: 760px) 100vw, 33vw" width="1024" height="1280" alt="Sello de We' Connection con sus dos personajes" loading="lazy" />
+            <span class="tile__info"><span class="tile__tags">identidad ilustrada · manual</span><span class="tile__name">We' Connection</span><span class="tile__year">2026</span></span>
+          </a>
+          <a class="tile tile--cover reveal" style="--d:.06s" href="#caso-coverart" data-case="coverart">
+            <img src="./assets/diseno/cover/cover-800.webp" srcset="./assets/diseno/cover/cover-800.webp 800w, ./assets/diseno/cover/cover-1600.webp 1600w" sizes="(max-width: 760px) 100vw, 33vw" width="1600" height="1000" alt="Logotipo gótico de Ludmila Schimpf" loading="lazy" />
+            <span class="tile__info"><span class="tile__tags">cover art · editorial</span><span class="tile__name">Ludmila Schimpf · Strato</span><span class="tile__year">2023</span></span>
+          </a>
+          <a class="tile tile--grow reveal" href="#caso-growland" data-case="growland">
+            <img src="./assets/diseno/grow/cover-800.webp" srcset="./assets/diseno/grow/cover-800.webp 800w, ./assets/diseno/grow/cover-1600.webp 1600w" sizes="100vw" width="1600" height="999" alt="Ilustración doodle de Growland" loading="lazy" />
+            <span class="tile__info"><span class="tile__tags">redes · ilustración · editorial</span><span class="tile__name">Growland</span><span class="tile__year">2024–2026</span></span>
+          </a>
+        </div>
+
+        <!-- Logotipos propios: siluetas uniformes; al pasar el mouse aparecen guías de construcción -->
+        <div class="logofolio">
+          <p class="subhead reveal">logotipos</p>
+          <ul class="logos reveal">
+            <li class="logo"><img src="./assets/diseno/logos/origenes-800.webp" alt="Orígenes" width="772" height="800" loading="lazy" /><span>Orígenes · 2023</span></li>
+            <li class="logo"><img src="./assets/diseno/logos/ponte-guapa-1600.webp" alt="Pónte Guapa" width="734" height="702" loading="lazy" /><span>Pónte Guapa · 2023</span></li>
+            <li class="logo"><img src="./assets/diseno/logos/rd-essence-800.webp" alt="RD Essence" width="800" height="737" loading="lazy" /><span>RD Essence · 2026</span></li>
+            <li class="logo"><img src="./assets/diseno/logos/hierbas-blends-800.webp" alt="Hierbas Blends" width="712" height="800" loading="lazy" /><span>Hierbas Blends · 2020</span></li>
+            <li class="logo logo--wide"><img src="./assets/diseno/logos/noer-800.webp" alt="NoER" width="800" height="364" loading="lazy" /><span>NoER · 2026</span></li>
+            <li class="logo logo--wide"><img src="./assets/diseno/logos/we-connection-800.webp" alt="We' Connection" width="800" height="453" loading="lazy" /><span>We' Connection · 2026</span></li>
+            <li class="logo logo--wide"><img src="./assets/diseno/logos/hotdog24-800.webp" alt="HotDog24" width="800" height="314" loading="lazy" /><span>HotDog24 · 2025</span></li>
+            <li class="logo logo--wide"><img src="./assets/diseno/logos/fm-libertad-1600.webp" alt="FM Libertad 101.5" width="686" height="251" loading="lazy" /><span>FM Libertad · 2024</span></li>
+            <li class="logo logo--wide"><img src="./assets/diseno/logos/en-portada-800.webp" alt="En Portada" width="800" height="193" loading="lazy" /><span>En Portada · 2025</span></li>
+          </ul>
+        </div>
+
+        <!-- Marcas con las que trabajé (en relación de dependencia): solo logos, sin piezas -->
+        <div class="clients reveal">
+          <p class="subhead">marcas con las que trabajé</p>
+          <div class="clients__row">
+            <div class="clients__group">
+              <img src="./assets/diseno/clientes/liliana-800.webp" alt="Liliana Electrodomésticos" width="800" height="269" loading="lazy" class="clients__main" />
+              <span class="clients__note">Analista de Diseño</span>
+            </div>
+            <div class="clients__group clients__group--nb">
+              <span class="clients__note">NutriBlend Group · 7 submarcas</span>
+              <ul class="clients__logos">
+                <li><img src="./assets/diseno/clientes/positive-800.webp" alt="Positive+" width="800" height="226" loading="lazy" /></li>
+                <li><img src="./assets/diseno/clientes/biologics-1600.webp" alt="Biologics" width="518" height="168" loading="lazy" /></li>
+                <li><img src="./assets/diseno/clientes/muscle-concept-1600.webp" alt="Muscle Concept" width="391" height="115" loading="lazy" /></li>
+                <li><img src="./assets/diseno/clientes/my-nutrition-1600.webp" alt="My Nutrition" width="487" height="112" loading="lazy" /></li>
+                <li><img src="./assets/diseno/clientes/nutrilab-1600.webp" alt="NutriLab" width="532" height="136" loading="lazy" /></li>
+                <li><img src="./assets/diseno/clientes/dark-mood-800.webp" alt="Dark Mood" width="800" height="241" loading="lazy" /></li>
+                <li><img src="./assets/diseno/clientes/new-made-800.webp" alt="New Made" width="800" height="300" loading="lazy" /></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Caso abierto (overlay). Se completa desde js/design.js -->
+    <div class="case-modal" id="caseModal" role="dialog" aria-modal="true" aria-labelledby="caseTitle" hidden>
+      <div class="case-modal__bar">
+        <p class="case-modal__count" id="caseCount"></p>
+        <div class="case-modal__nav">
+          <button class="icon-btn" type="button" data-case-step="-1" aria-label="Caso anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="icon-btn" type="button" data-case-step="1" aria-label="Caso siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+          <button class="menu-btn case-modal__close" type="button" id="caseClose"><span class="menu-btn__label">Cerrar</span><span class="menu-btn__icon is-x" aria-hidden="true"><i></i><i></i></span></button>
+        </div>
+      </div>
+      <div class="case-modal__scroll" id="caseScroll">
+        <article class="wrap case-modal__body" id="caseBody"></article>
+      </div>
+    </div>
+
+    <!-- ══════════════════ 4 · HERRAMIENTAS (cohete) ══════════════════ -->
+    <section class="section" id="herramientas" data-name="herramientas">
+      <div class="wrap tools">
+        <div class="tools__copy">
+          <p class="eyebrow reveal">herramientas</p>
+          <h2 class="title reveal">Herramientas a medida, construidas con IA.</h2>
+          <p class="lead reveal" style="--d:.1s">
+            Cuando ninguna app hace exactamente lo que tu negocio necesita, la
+            construimos: calculadoras, paneles, catálogos, gestores simples.
+            Software chico, útil y tuyo.
+          </p>
+
+          <!-- Caso real: suite interna para una empresa de electrodomésticos
+               (sin nombrar la empresa ni enlazar la suite). Cada .tool-row:
+               nombre · qué hace · estado (is-live / is-dev / is-soon). -->
+          <div class="panel term reveal" style="--d:.15s">
+            <div class="console__bar"><span></span><span></span><span></span><em>~/suite-interna · fabricante de electrodomésticos</em></div>
+            <div class="term__body">
+              <p class="term__text">
+                Una suite web hecha a medida para el equipo de diseño e ingeniería de
+                una empresa de electrodomésticos: lo que antes era trabajo manual
+                ahora se resuelve en segundos, desde el navegador.
+              </p>
+              <p class="term__line"><span class="term__prompt">$</span> ls herramientas/</p>
+              <ul class="tool-list">
+                <li class="tool-row is-live"><b>Generador de QR</b><span>Códigos QR para gráficas de caja, en SVG y PNG.</span></li>
+                <li class="tool-row is-live"><b>Etiquetas de producto</b><span>Listas para imprenta, en SVG o PDF.</span></li>
+                <li class="tool-row is-live"><b>Tarjetas de garantía</b><span>Se completan y salen en PDF listo para imprimir.</span></li>
+                <li class="tool-row is-live"><b>Shipping marks</b><span>Subís la planilla de códigos y sale la marca de embarque de cada uno.</span></li>
+                <li class="tool-row is-dev"><b>Imagen a DXF</b><span>Convierte una imagen en vectores para corte o grabado láser.</span></li>
+                <li class="tool-row is-dev"><b>Plegador de troqueles</b><span>Pliega en 3D un troquel desde su plano y lo mide.</span></li>
+                <li class="tool-row is-dev"><b>Estiba de contenedor</b><span>Calcula cuántas cajas entran en un contenedor y compara estibas en 3D.</span></li>
+                <li class="tool-row is-soon"><b>Buscador de artworks</b><span>La última versión de cada pieza gráfica, buscando por producto.</span></li>
+              </ul>
+              <p class="tool-legend" aria-hidden="true"><i class="is-live"></i>en uso <i class="is-dev"></i>en desarrollo <i class="is-soon"></i>próximamente</p>
+              <a class="link-strong" href="#contacto">¿Qué herramienta le falta a tu negocio? Contámela →</a>
+            </div>
+          </div>
+
+          <!-- Visor 3D con dos herramientas de la suite (datos genéricos).
+               Lógica en js/tooldemo.js → DEMO_CONFIG. -->
+          <div class="panel demo reveal" id="toolDemo">
+            <div class="demo__bar">
+              <div class="demo__tabs" role="tablist" aria-label="Simulaciones de herramientas">
+                <button class="sim__tab" role="tab" aria-selected="true" data-demo="die">Plegador de troqueles</button>
+                <button class="sim__tab" role="tab" aria-selected="false" tabindex="-1" data-demo="container">Estiba de contenedor</button>
+              </div>
+              <p class="sim__badge">arrastrá para girar</p>
+            </div>
+            <div class="demo__view">
+              <canvas class="demo__canvas" aria-hidden="true"></canvas>
+              <p class="demo__stats" aria-live="polite"></p>
+            </div>
+            <p class="demo__caption"></p>
+          </div>
+        </div>
+        <div class="stage stage--tall" data-stage="rocket" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════ 5 · SOBRE MÍ ════════════════════════ -->
+    <section class="section" id="sobre-mi" data-name="sobre mí">
+      <div class="wrap about">
+        <div class="about__text">
+          <p class="eyebrow reveal">sobre mí</p>
+          <h2 class="title reveal">Un diseñador que aprendió a construir.</h2>
+          <div class="prose reveal" style="--d:.1s">
+            <p>Soy <strong>Matías Medrano</strong>, diseñador gráfico formado en la Escuela Superior de Diseño de Rosario. Empecé por el lado clásico —packaging, branding, editorial— y hoy sigo ahí: en Liliana Electrodomésticos defino la gráfica del producto desde las primeras etapas, y antes lideré el desarrollo visual de las siete submarcas de NutriBlend Group. Desde 2021 hago lo mismo por mi cuenta, llevando marca completa —identidad, packaging y web— para clientes como Hierbas Blends y FM Libertad 101.5.</p>
+            <p>Lo que sumé después fue la IA: n8n, Claude, ChatGPT, para construir lo que antes quedaba fuera del alcance de un diseñador. En Liliana armé por iniciativa propia herramientas internas que hoy usa el equipo de Ingeniería, y un espacio de trabajo con IA adaptado a normativa técnica argentina. Eso es <strong>SinapStudio</strong>: diseño y tecnología, haciendo sinapsis.</p>
+          </div>
+          <a class="btn btn--ghost reveal" style="--d:.15s" href="https://www.linkedin.com/in/matias-medrano-374032233/" target="_blank" rel="noopener">Ver perfil en LinkedIn ↗</a>
+        </div>
+
+        <aside class="about__aside">
+          <!-- La red forma el monograma MM en este espacio.
+               Si sumás un retrato: <img class="portrait" src="./assets/matias.jpg" alt="Matías Medrano" /> -->
+          <div class="stage stage--mono" data-stage="monogram" aria-hidden="true"></div>
+          <!-- Trayectoria como cadena de nodos (de lo más nuevo a lo más viejo).
+               Fuente: CV real — no inflar fechas ni roles. -->
+          <ol class="chain reveal" aria-label="Trayectoria">
+            <li><span class="chain__when">en curso</span><span class="chain__what">IA Automation · Coderhouse</span></li>
+            <li><span class="chain__when">dic. 2024 — hoy</span><span class="chain__what">Analista de Diseño · Liliana Electrodomésticos</span></li>
+            <li><span class="chain__when">2024</span><span class="chain__what">Diseñador gráfico · NutriBlend Group</span></li>
+            <li><span class="chain__when">2022 — 2023</span><span class="chain__what">Ayudante de Cátedra, Diseño Morfológico · ESDR</span></li>
+            <li><span class="chain__when">2021 — hoy</span><span class="chain__what">Diseño &amp; desarrollo web · Independiente y Hierbas Blends</span></li>
+            <li><span class="chain__when">etapa final</span><span class="chain__what">Tecnicatura en Diseño Gráfico · ESDR</span></li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ════════════════════════ 6 · CONTACTO ════════════════════════ -->
+    <section class="section contact" id="contacto" data-name="contacto">
+      <div class="stage stage--contact" data-stage="synapse" aria-hidden="true"></div>
+      <div class="wrap contact__inner">
+        <p class="eyebrow reveal">contacto</p>
+        <h2 class="contact__title reveal">¿Conectamos?</h2>
+        <p class="lead reveal" style="--d:.1s">
+          Contame qué necesitás —una web, una automatización, una herramienta—
+          y te respondo con una propuesta concreta. Si no es para mí, te lo digo yo mismo.
+        </p>
+        <div class="btn-row btn-row--center reveal" style="--d:.18s">
+          <a class="btn btn--primary" href="https://wa.me/5493435462568?text=%C2%A1Hola!%20Vengo%20de%20SinapStudio%20y%20quiero%20consultar%20por%20un%20proyecto." target="_blank" rel="noopener">
+            <svg class="btn__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Z"/></svg>
+            Escribir por WhatsApp
+          </a>
+          <a class="btn btn--ghost" href="mailto:matiass1708@gmail.com?subject=Consulta%20desde%20SinapStudio">
+            <svg class="btn__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
+            Enviar un email
+          </a>
+          <a class="btn btn--ghost" href="https://www.linkedin.com/in/matias-medrano-374032233/" target="_blank" rel="noopener">
+            <svg class="btn__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9v8M7 6.5v.01M11 17v-5a2 2 0 0 1 4 0v5"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ════════════════════════ FOOTER ════════════════════════ -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="footer-copy">© <span id="year">2026</span> SinapStudio · Matías Medrano</p>
+      <p class="footer-note">// diseño × ia · rosario, argentina · v3.1</p>
+      <a class="footer-top" href="#inicio">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <!-- Sonidos (antes que main.js y neural.js, que lo usan) -->
+  <script src="./js/audio.js?v=3.1.7" defer></script>
+  <script src="./js/main.js?v=3.1.5" defer></script>
+  <!-- Red 3D: formas + render (Three.js se carga desde CDN dentro de neural.js) -->
+  <script src="./js/shapes.js?v=3.1.5" defer></script>
+  <script src="./js/neural.js?v=3.1.5" defer></script>
+  <!-- Identidad y diseño: medidas de imágenes (generadas) + casos -->
+  <script src="./assets/diseno/sizes.js?v=3.1.5" defer></script>
+  <script src="./js/design.js?v=3.1.5" defer></script>
+  <script src="./js/tooldemo.js?v=3.1.5" defer></script>
+</body>
+</html>
