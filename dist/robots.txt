@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sinapstudio.com/sitemap.xml
+# Sitemap: completar cuando haya dominio definitivo

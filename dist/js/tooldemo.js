@@ -1,5 +1,5 @@
 /* ============================================================
-   SINAPSTUDIO v3 — tooldemo.js
+   PORTFOLIO MATÍAS MEDRANO v3.2 — tooldemo.js
    Visor 3D (en nodos) de dos herramientas de la suite interna,
    con datos genéricos:
    · Plegador de troqueles: una caja pasa del plano a plegada.

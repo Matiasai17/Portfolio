@@ -1,5 +1,5 @@
 /* ============================================================
-   SINAPSTUDIO v3 — design.js
+   PORTFOLIO MATÍAS MEDRANO v3.2 — design.js
    Sección "Identidad y diseño": abre cada caso en un overlay a
    pantalla completa, con ficha, galería y módulos especiales:
      · compare  → comparador arrastrable (antes / propuesta)

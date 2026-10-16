@@ -17,8 +17,8 @@ if (Test-Path "$root\assets\diseno") {
 
 # .htaccess / robots / sitemap: se crean solo si no existen (copiados de la v2)
 $v2 = Join-Path (Split-Path $root -Parent) 'web-sinapstudio_v2\dist'
-foreach ($f in '.htaccess', 'robots.txt', 'sitemap.xml') {
+foreach ($f in '.htaccess', 'robots.txt') {   # sitemap: recién cuando haya dominio
   if (-not (Test-Path "$dist\$f") -and (Test-Path "$v2\$f")) { Copy-Item "$v2\$f" "$dist\$f" }
 }
 
-Write-Host "dist/ actualizado. Subí su contenido a public_html/ en Hostinger." -ForegroundColor Green
+Write-Host "dist/ actualizado. dist/ al día (Hostinger o Vercel)." -ForegroundColor Green

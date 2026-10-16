@@ -1,5 +1,5 @@
 /* ============================================================
-   SINAPSTUDIO v3 — shapes.js
+   PORTFOLIO MATÍAS MEDRANO v3.2 — shapes.js
    Las 6 formas que adopta la red neuronal, generadas por
    matemática pura (sin modelos .glb ni archivos externos).
 

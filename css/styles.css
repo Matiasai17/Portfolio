@@ -1,5 +1,5 @@
 /* ============================================================
-   SINAPSTUDIO v3 — styles.css
+   PORTFOLIO MATÍAS MEDRANO v3.2 — styles.css
    Concepto: una red neuronal 3D que muta detrás del sitio.
    Paleta "Sunset" evolucionada · Tipografía Recursive (variable):
    el eje MONO pasa de monoespaciada (código) a sans (diseño) —
@@ -322,6 +322,18 @@ main, .site-footer { position: relative; z-index: 1; }
 }
 .hero__lead { margin-bottom: 34px; }
 .hero__foot { display: flex; justify-content: space-between; gap: 20px; padding-top: 24px; }
+
+/* Tres frentes de trabajo, debajo del hero: lo mínimo que alguien tiene que
+   entender sin bajar del primer scroll. */
+.pillars {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2.4vw, 40px);
+  margin-top: clamp(28px, 5vh, 52px); padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.pillars b { display: block; font-size: .98rem; font-weight: 650; color: var(--ink); margin-bottom: 6px; }
+.pillars b::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--lime); margin-right: 9px; vertical-align: middle; }
+.pillars span { display: block; color: var(--muted); font-size: .88rem; line-height: 1.5; max-width: 38ch; }
 .hint { --mono: 1; font-size: .76rem; color: var(--muted); display: inline-flex; align-items: center; gap: 10px; }
 .hint__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--copper); animation: drop 1.8s var(--ease) infinite; }
 @keyframes drop { 0% { transform: translateY(-4px); opacity: 0; } 40% { opacity: 1; } 100% { transform: translateY(6px); opacity: 0; } }
@@ -563,6 +575,7 @@ main, .site-footer { position: relative; z-index: 1; }
 .clients__main { height: 46px; width: auto; opacity: .7; transition: opacity .3s; }
 .clients__main:hover { opacity: 1; }
 .clients__note { --mono: 1; font-size: .7rem; color: var(--muted); }
+.clients__intro { color: var(--ink-2); font-size: .94rem; max-width: 62ch; margin: -6px 0 24px; }
 .clients__logos { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 34px; }
 .clients__logos img { height: 30px; width: auto; max-width: 150px; object-fit: contain; opacity: .55; transition: opacity .3s; }
 .clients__logos img:hover { opacity: 1; }
@@ -725,6 +738,13 @@ body.modal-open { overflow: hidden; }
 .stage--mono { height: clamp(220px, 34vh, 360px); margin-bottom: 28px; }
 .portrait { width: 100%; border-radius: var(--r-lg); margin-bottom: 28px; }
 
+
+/* "Hacia dónde voy": lo que estoy incorporando y todavía no tiene casos. */
+.next { margin-bottom: 32px; padding: clamp(18px, 2.4vw, 26px); border: 1px dashed var(--line-2); border-radius: 14px; }
+.next .subhead { margin-bottom: 14px; }
+.next__list { display: grid; gap: 14px; }
+.next__list b { display: block; font-size: .95rem; font-weight: 620; color: var(--ink); margin-bottom: 3px; }
+.next__list span { display: block; color: var(--muted); font-size: .88rem; line-height: 1.5; max-width: 54ch; }
 .chain { position: relative; padding-left: 26px; }
 .chain::before { content: ''; position: absolute; left: 5px; top: 10px; bottom: 10px; width: 1px; background: linear-gradient(var(--lime), var(--copper) 40%, var(--mahogany)); }
 .chain li { position: relative; display: flex; flex-direction: column; gap: 2px; padding: 9px 0; }
@@ -790,6 +810,7 @@ body.modal-open { overflow: hidden; }
   .hero__stage { position: relative; right: auto; top: auto; transform: none; width: 100%; height: 34svh; }
   .hero__title { font-size: clamp(2.35rem, 11.4vw, 3.6rem); }
   .hero__foot { flex-direction: column; gap: 8px; }
+  .pillars { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .hint--click { display: none; }
   .btn { height: 50px; padding: 0 20px; }
   .btn-row .btn { flex: 1 1 auto; justify-content: center; }

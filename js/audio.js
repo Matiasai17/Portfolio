@@ -1,5 +1,5 @@
 /* ============================================================
-   SINAPSTUDIO v3 — audio.js
+   PORTFOLIO MATÍAS MEDRANO v3.2 — audio.js
    Paisaje sonoro sintetizado en vivo (Web Audio API, sin archivos).
    Todo sale de la misma escala pentatónica, así que cualquier
    combinación suena consonante.

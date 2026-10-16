@@ -1,5 +1,5 @@
 /* ============================================================
-   SINAPSTUDIO v3 — neural.js
+   PORTFOLIO MATÍAS MEDRANO v3.2 — neural.js
    La red neuronal 3D de fondo (Three.js por CDN, sin build).
 
    · Muta de forma según la sección: cada sección tiene un

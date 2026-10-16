@@ -1,5 +1,5 @@
 /* ============================================================
-   SINAPSTUDIO v3 — main.js  (vanilla, sin dependencias)
+   PORTFOLIO MATÍAS MEDRANO v3.2 — main.js  (vanilla, sin dependencias)
    1. Año del footer            5. Carruseles + inclinación de los casos
    2. Header + migas (sección)  6. Simulador de automatizaciones (FLOWS)
    3. Menú overlay              7. Botón de sonido

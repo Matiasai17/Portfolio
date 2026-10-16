@@ -1,11 +1,22 @@
-# SinapStudio v3.1 — Red neuronal que muta (noche azulada)
+# Matías Medrano v3.2 — Portfolio (red neuronal que muta)
 
-> **v3.1**: misma estructura que la v3 con otra piel. Base azul noche con **acento ámbar** `#f2b84b` (`--lime`), violeta `#a58bff`
-> (`--copper`) y rosa `#ff8fd0` (`--amber`) para detalles, cian `--spark`; degradé
-> ámbar→coral→rosa→violeta en títulos y botones, aurora animada de fondo y paneles de
-> vidrio más translúcidos, inspirada en YT Music. La v3 (sunset) sigue en
-> `../web-sinapstudio_v3/`. Los tokens siguen llamándose `--lime`, `--copper`…
-> por compatibilidad: en la v3.1 `--lime` es lavanda y `--copper` azul.
+> **v3.2 — cambio de comunicación.** Se retira la marca **SinapStudio**: el sitio
+> firma con el nombre propio (header, footer, SEO y JSON-LD como `Person`). El hero
+> pasa a *"De la idea a la marca. Del diseño al software."*, el eyebrow a
+> `diseño × ia`, y toda la copy se reescribe en un registro más sobrio, apuntado a
+> dueños de marca y empresas medianas: qué hago, qué hice y qué puedo hacer.
+> Novedades de contenido: tira de **tres pilares** bajo el hero, fila `resultado` en
+> cada caso web, bajada de *diseño dentro de empresas* (Liliana / NutriBlend como
+> aval) y bloque **"hacia dónde voy"** en Quién soy (fotografía, audiovisual con IA
+> y 3D: lo que todavía no tiene casos propios, dicho sin inflar).
+> Los nombres del menú hablan el idioma del cliente: Automatización e IA · Webs y
+> tiendas · Marca y packaging · Software a medida · Quién soy.
+> **La estética, las formas 3D y el orden de secciones no se tocaron.**
+>
+> **v3.1** (piel azul noche con acento ámbar `#f2b84b`, violeta `#a58bff`, rosa
+> `#ff8fd0`; aurora animada y vidrio translúcido) sigue en
+> `../web-sinapstudio_v3.1/`, y la v3 sunset en `../web-sinapstudio_v3/`. Los tokens
+> conservan los nombres viejos (`--lime` es ámbar, `--copper` violeta).
 
 Portfolio de Matías Medrano. Sitio estático (HTML + CSS + JS vanilla, sin build).
 Three.js se carga desde CDN (jsDelivr) dentro de `js/neural.js`; no hay npm.
@@ -38,7 +49,7 @@ js/design.js      Identidad y diseño: casos (CASES), overlay, comparador antes/
 assets/diseno/    Imágenes de diseño GENERADAS (no editar a mano) + sizes.js
 tools/build-design-assets.py  Genera assets/diseno/ desde los originales del CV
 assets/           Capturas de los casos
-build-dist.ps1    Regenera dist/ (lo que se sube a Hostinger)
+build-dist.ps1    Regenera dist/ (lo que se sube a Hostinger / Vercel)
 ```
 
 ## Dónde tocar qué
@@ -90,4 +101,4 @@ funciona en Chrome/Edge, pero un servidor es más fiel a producción.
 - Retrato real (opcional: hoy el monograma MM de nodos ocupa ese lugar).
 - Imagen OG `assets/og.png` (1200×630).
 - Primera herramienta real en `#herramientas` (reemplaza la card de terminal).
-- Dominio definitivo (hoy `sinapstudio.com` en canonical, OG, robots y sitemap).
+- Dominio definitivo: falta completar `canonical` y `og:url` en `index.html` (hay un TODO) y la línea `Sitemap:` de `dist/robots.txt`.
