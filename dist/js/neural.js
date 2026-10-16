@@ -547,7 +547,7 @@
       document.body.appendChild(el);
       setTimeout(() => el.remove(), 700);
     }
-    const intro = { t: reduced ? -1 : 0, landed: false, zapT: -1, fast: false };
+    const intro = { t: reduced ? -1 : 0, landed: false, zapT: -1, fast: false, zapIn: 0 };
     const fall = { state: 'idle', t: 0 };  // idle → shatter (rayo + estallido) → idle al volver al hero
     function lightning() {
       if (intro.zapT >= 0) return;
@@ -561,6 +561,11 @@
     }
     function updateIntro(dt) {
       const U = uniforms;
+      // el rayo cierra la intro por su cuenta: no espera a que el visitante scrollee
+      if (intro.zapIn > 0) {
+        intro.zapIn -= dt;
+        if (intro.zapIn <= 0) { intro.zapIn = 0; lightning(); }
+      }
       if (intro.t >= 0) {
         intro.t += dt;
         const FALL = intro.fast ? 0 : 0.95, GROW = intro.fast ? 1.5 : 2.5, t = intro.t + (intro.fast ? 0 : 0);
@@ -576,7 +581,11 @@
           }
           const g = Math.min(1, (t - FALL) / GROW);
           U.uGrow.value = (1 - Math.pow(1 - g, 2.2)) * 1.06;
-          if (g >= 1) { U.uGrow.value = 2; intro.t = -1; intro.fast = false; }
+          if (g >= 1) {
+            U.uGrow.value = 2; intro.t = -1;
+            if (!intro.fast) intro.zapIn = 0.55;  // solo la primera vez; al volver al hero el árbol rebrota sin rayo
+            intro.fast = false;
+          }
         }
       }
       if (intro.zapT >= 0) {
